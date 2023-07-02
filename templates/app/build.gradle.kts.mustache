@@ -24,6 +24,10 @@ android {
     }
 }
 
+configure<DataDescriptorPluginExtension> {
+    excludes.set(listOf("README.md"))
+}
+
 dependencies {
     implementation(libs.plugin.base)
     implementation(libs.common)
