@@ -42,7 +42,9 @@ main = shakeArgs shakeOptions $ do
             "app/src/main/AndroidManifest.xml",
             -- app res
             "app/src/main/res/values/strings.xml",
-            "app/src/main/res/xml/plugin.xml"
+            "app/src/main/res/xml/plugin.xml",
+            -- app assets
+            "app/src/main/assets/README.md"
           ]
   phony "clean" $ removeFilesAfter "out" ["//*"]
 
