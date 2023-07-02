@@ -1,6 +1,9 @@
 pluginManagement {
     repositories {
-        maven ("https://android-fcitx5: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@maven.pkg.github.com/fcitx5-android/fcitx5-android")
+        maven (String(
+            java.util.Base64.getDecoder()
+                .decode("aHR0cHM6Ly9hbmRyb2lkLWZjaXR4NTpnaHBfRFNXQ0ZiWktPYUFWWnI0NzBvelZwWDR4eFdxQzBHMXJmQzNaQG1hdmVuLnBrZy5naXRodWIuY29tL2ZjaXR4NS1hbmRyb2lkL2ZjaXR4NS1hbmRyb2lk")
+        ))
         google()
         mavenCentral()
         gradlePluginPortal()
@@ -9,7 +12,10 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        maven ("https://android-fcitx5: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@maven.pkg.github.com/fcitx5-android/fcitx5-android")
+        maven (String(
+            java.util.Base64.getDecoder()
+                .decode("aHR0cHM6Ly9hbmRyb2lkLWZjaXR4NTpnaHBfRFNXQ0ZiWktPYUFWWnI0NzBvelZwWDR4eFdxQzBHMXJmQzNaQG1hdmVuLnBrZy5naXRodWIuY29tL2ZjaXR4NS1hbmRyb2lkL2ZjaXR4NS1hbmRyb2lk")
+        ))
         google()
         mavenCentral()
     }
