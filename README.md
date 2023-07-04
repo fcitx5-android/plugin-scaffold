@@ -1,4 +1,4 @@
-# scaffolding
+# plugin-scaffold
 
 Generate a basic out-of-tree fcitx5-android plugin scaffold
 

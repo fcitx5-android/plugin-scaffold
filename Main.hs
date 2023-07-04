@@ -74,6 +74,7 @@ getProjectConfig =
     <*> getConfig' "kotlin_version"
     <*> getConfig' "android_version"
     <*> getConfig' "build_version_name"
+    <*> (read . T.unpack <$> getConfig' "version_code")
     <*> getConfig' "build_commit_hash"
     <*> getConfig' "package_name"
     <*> getConfig' "app_name_debug"
@@ -98,6 +99,7 @@ data ProjectConfig = ProjectConfig
     kotlinVersion :: Text,
     androidVersion :: Text,
     buildVersionName :: Text,
+    versionCode :: Int,
     buildCommitHash :: Text,
     packageName :: Text,
     appNameDebug :: Text,
@@ -118,6 +120,7 @@ instance ToMustache ProjectConfig where
         "kotlin_version" ~> kotlinVersion,
         "android_version" ~> androidVersion,
         "build_version_name" ~> buildVersionName,
+        "version_code" ~> versionCode,
         "build_commit_hash" ~> buildCommitHash,
         "package_name" ~> packageName,
         "app_name_debug" ~> appNameDebug,
