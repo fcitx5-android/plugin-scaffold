@@ -2,7 +2,6 @@
 
 Generate a basic out-of-tree fcitx5-android plugin scaffold
 
-
 ## Dependencies
 
 ### Arch Linux
