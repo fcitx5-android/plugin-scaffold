@@ -1,5 +1,5 @@
 {
-  description = "Dev shell flake for tables";
+  description = "Dev shell flake for plugin-scaffold";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
   inputs.flake-compat = {
@@ -13,7 +13,8 @@
         devShells.default = mkShell {
           buildInputs = [
             haskell-language-server
-            (haskellPackages.ghcWithPackages (pkgs: with pkgs; [ shake mustache ]))
+            (haskellPackages.ghcWithPackages
+              (pkgs: with pkgs; [ shake mustache ]))
           ];
         };
       });

@@ -34,6 +34,9 @@ main = shakeArgs shakeOptions $ do
             -- project gitignore
             ".gitignore",
             "README.md",
+            -- nix
+            "flake.nix",
+            "shell.nix",
             -- app gradle
             "app/build.gradle.kts",
             -- app gitignore
