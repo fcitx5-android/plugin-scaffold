@@ -17,7 +17,8 @@
           config.allowUnfree = true;
           overlays = [ fcitx5-android.overlays.default ];
         };
-        sdk = pkgs.fcitx5-android.sdk;
+        # disable ndk
+        sdk = pkgs.fcitx5-android.sdk.extend (_: _: { includeNDK = false; });
       in {
         devShells = {
           default = sdk.shell;
