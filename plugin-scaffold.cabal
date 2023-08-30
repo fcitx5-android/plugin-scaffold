@@ -1,0 +1,19 @@
+cabal-version: 3.0
+name:          plugin-scaffold
+version:       0.1.0.0
+author:        berberman
+maintainer:    berberman@yandex.com
+build-type:    Simple
+
+executable plugin-scaffold
+  ghc-options:      -Wall
+  import:           warnings
+  main-is:          Main.hs
+  build-depends:
+    , base
+    , mustache
+    , shake
+    , text
+
+  hs-source-dirs:   .
+  default-language: Haskell2010

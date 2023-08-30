@@ -1,3 +1,4 @@
 build
 .shake
 out
+dist-newstyle

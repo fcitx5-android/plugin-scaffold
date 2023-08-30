@@ -8,14 +8,15 @@
   };
   outputs = { self, nixpkgs, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = nixpkgs.legacyPackages.${system};
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+        plugin-scaffold = pkgs.haskellPackages.callPackage ./nix { };
       in with pkgs; {
-        devShells.default = mkShell {
-          buildInputs = [
-            haskell-language-server
-            (haskellPackages.ghcWithPackages
-              (pkgs: with pkgs; [ shake mustache ]))
-          ];
-        };
+        devShells.default = (haskell.lib.addBuildTools plugin-scaffold [
+          haskell-language-server
+          cabal2nix
+          cabal-install
+        ]).envFunc { };
+        packages.default = haskell.lib.justStaticExecutables plugin-scaffold;
       });
 }
