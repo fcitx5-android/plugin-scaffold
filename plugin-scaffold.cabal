@@ -1,9 +1,23 @@
 cabal-version: 3.0
 name:          plugin-scaffold
 version:       0.1.0.0
+license:       LGPL-2.1-or-later
 author:        berberman
 maintainer:    berberman@yandex.com
 build-type:    Simple
+data-dir:      data
+data-files:
+  fixtures/*.nix
+  fixtures/.gitignore
+  fixtures/app/.gitignore
+  fixtures/app/src/main/AndroidManifest.xml
+  fixtures/app/src/main/assets/README.md
+  fixtures/build.gradle.kts
+  fixtures/gradle/wrapper/gradle-wrapper.jar
+  fixtures/gradle/wrapper/gradle-wrapper.properties
+  fixtures/gradlew
+  fixtures/gradlew.bat
+  templates/**/*.mustache
 
 executable plugin-scaffold
   ghc-options:      -Wall
@@ -17,3 +31,5 @@ executable plugin-scaffold
 
   hs-source-dirs:   .
   default-language: Haskell2010
+  autogen-modules:  Paths_plugin_scaffold
+  other-modules:    Paths_plugin_scaffold

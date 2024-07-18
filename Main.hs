@@ -1,18 +1,16 @@
-{-# LANGUAGE Haskell2010 #-}
-{-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE ViewPatterns #-}
-{-# OPTIONS_GHC -Wall #-}
 
 module Main where
 
 import Data.Text (Text)
-import Data.Text qualified as T
+import qualified Data.Text as T
 import Development.Shake hiding ((~>))
 import Development.Shake.Config
 import Development.Shake.FilePath
+import Paths_plugin_scaffold (getDataDir)
 import Text.Mustache
 
 main :: IO ()
@@ -54,9 +52,10 @@ main = shakeArgs shakeOptions $ do
 fileRule :: Rules ()
 fileRule =
   "out//*" %> \out -> do
+    dataDir <- liftIO getDataDir
     let fp = dropDirectory1 out
     cfg <- getProjectConfig
-    let templateFile = "templates" </> fp <.> "mustache"
+    let templateFile = dataDir </> "templates" </> fp <.> "mustache"
     hasTemplate <- doesFileExist templateFile
     if hasTemplate
       then
@@ -65,7 +64,7 @@ fileRule =
             ([], result) -> writeFile' out (T.unpack result)
             (err, _) -> fail $ "Failed to substitute template: " <> show err
           Left err -> fail $ "Failed to compile template: " <> show err
-      else copyFile' ("fixtures" </> fp) out
+      else copyFile' (dataDir </> "fixtures" </> fp) out
 
 getProjectConfig :: Action ProjectConfig
 getProjectConfig =
