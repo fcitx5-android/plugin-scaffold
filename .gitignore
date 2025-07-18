@@ -2,3 +2,4 @@ build
 .shake
 out
 dist-newstyle
+cabal.project.local

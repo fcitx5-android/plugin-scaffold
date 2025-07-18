@@ -13,13 +13,14 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+    // library alias should be in sync with https://github.com/fcitx5-android/fcitx5-android/blob/master/gradle/libs.versions.toml
     versionCatalogs {
         create("libs") {
-            plugin("kotlin","org.jetbrains.kotlin.android").version("{{kotlin_version}}")
+            plugin("kotlin.android", "org.jetbrains.kotlin.android").version("{{kotlin_version}}")
 
-            version("android","{{android_version}}")
-            plugin("android.app","com.android.application").versionRef("android")
-            plugin("android.library","com.android.library").versionRef("android")
+            version("android", "{{android_version}}")
+            plugin("android.application", "com.android.application").versionRef("android")
+            plugin("android.library", "com.android.library").versionRef("android")
 
             plugin("aboutlibraries", "com.mikepenz.aboutlibraries.plugin").version("{{aboutlibraries_version}}")
             library("android.desugarJDKLibs", "com.android.tools", "desugar_jdk_libs").version("{{desugarJDKLibs_version}}")
@@ -31,7 +32,6 @@ dependencyResolutionManagement {
             pluginA("lib-convention")
             pluginA("plugin-app-convention")
             pluginA("build-metadata")
-            pluginA("cmake-dir")
             pluginA("data-descriptor")
             pluginA("fcitx-component")
             pluginA("fcitx-headers")
