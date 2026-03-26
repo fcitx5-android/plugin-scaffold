@@ -1,17 +1,17 @@
 pluginManagement {
     repositories {
-        maven ("https://maven.libido.workers.dev/fcitx5-android/fcitx5-android/")
         google()
         mavenCentral()
         gradlePluginPortal()
+        maven("https://maven.fcitx.workers.dev")
     }
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        maven ("https://maven.libido.workers.dev/fcitx5-android/fcitx5-android/")
         google()
         mavenCentral()
+        maven("https://maven.fcitx.workers.dev")
     }
     // library alias should be in sync with https://github.com/fcitx5-android/fcitx5-android/blob/master/gradle/libs.versions.toml
     versionCatalogs {
